@@ -116,6 +116,9 @@ model.eval()
 criterion = torch.nn.CrossEntropyLoss()  
 optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
+
+port = int(os.environ.get("PORT", 8501))
+
 # Title
 st.title('Image Classification with PyTorch and Streamlit')
 
@@ -140,3 +143,7 @@ if uploaded_file is not None:
     class_names = ['Not Flowering', 'Flowering']  # Replace with your actual class names
 
     st.write(f'Predicted: {class_names[predicted]}')
+
+if __name__ == '__main__':
+    # Run Streamlit app on the specified port
+    st.run(port=port)
