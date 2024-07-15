@@ -1,7 +1,6 @@
 import streamlit as st # type: ignore
 from torchvision.transforms import v2 #type: ignore
 from PIL import Image
-import os
 
 #Some of our images are .pngs, we drop the alpha. 
 train_transform = v2.Compose([
