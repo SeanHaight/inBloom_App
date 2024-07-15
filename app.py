@@ -111,7 +111,7 @@ class MyResNet50(ResNet):
 
 model = MyResNet50()
 # if you need pretrained weights
-model.load_state_dict(torch.load("Model/resnet50midtrain.pt"))
+model.load_state_dict(torch.load("Model/resnet50midtrain.pt", map_location=torch.device('cpu')))
 model.eval()
 criterion = torch.nn.CrossEntropyLoss()  
 optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
