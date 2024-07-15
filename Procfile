@@ -1,1 +1,1 @@
-web: streamlit run streamlit_app.py
+web: streamlit run streamlit_app.py  --server.address 0.0.0.0 --server.port $PORT --server.fileWatcherType none --browser.gatherUsageStats false --client.toolbarMode minimal"
