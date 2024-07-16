@@ -1,6 +1,7 @@
 import streamlit as st # type: ignore
 from torchvision.transforms import v2 #type: ignore
 from PIL import Image
+import torch
 
 #Some of our images are .pngs, we drop the alpha. 
 train_transform = v2.Compose([
@@ -10,7 +11,7 @@ train_transform = v2.Compose([
 
     #Use torch.uint8 dtype, especially for resizing
                                 v2.ToPILImage(),
-                                v2.ToTensor(),
+                                v2.Compose([v2.ToImage(), v2.ToDtype(torch.float32, scale=True)]),
                                 v2.RandomAffine(degrees=(-180,180), translate=(0,.1), scale=(.9,1)),
                                 v2.RandomHorizontalFlip(p=0.5),
                                 v2.RandomVerticalFlip(p=0.5),
@@ -33,7 +34,7 @@ target_transform = v2.Compose([
 
 import torchvision.models as models
 from torchvision.models.resnet import ResNet, BasicBlock, Bottleneck
-import torch
+
 import torch.nn as nn
 
 class SeanBlock(BasicBlock):
