@@ -143,3 +143,6 @@ if uploaded_file is not None:
     class_names = ['Not Flowering', 'Flowering']  # Replace with your actual class names
 
     st.write(f'Predicted: {class_names[predicted]}')
+    
+else: 
+    st.write("uploaded file is None")
