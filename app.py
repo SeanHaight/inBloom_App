@@ -1,5 +1,5 @@
-import streamlit as st # type: ignore
-from torchvision.transforms import v2 #type: ignore
+import streamlit as st 
+from torchvision.transforms import v2 
 from PIL import Image
 import torch
 
